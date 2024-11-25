@@ -1,5 +1,5 @@
 'use client'
-import { API_URL } from "@/apis/axiosConfig";
+import { API_URL_IMG } from "@/apis/axiosConfig";
 import useApiRestaurants from "@/app/api/useApiRestaurants";
 import { useCart } from "@/app/context/CartContext";
 import { ClockCircleTwoTone, DollarTwoTone, DoubleRightOutlined, LikeFilled, MinusOutlined, PlusOutlined, SearchOutlined, StarFilled, StarOutlined } from "@ant-design/icons";
@@ -119,7 +119,7 @@ export default function Home() {
                 <div className="w-[45%] h-full py-4 px-10">
                     <div className="w-full relative h-full" >
                         {restaurantDetail?.img &&
-                            <Image layout="fill" objectFit="cover" src={API_URL + "/public" + restaurantDetail?.img?.split('public')[1]} alt="Ga"></Image>
+                            <Image layout="fill" objectFit="cover" src={API_URL_IMG + "/public" + restaurantDetail?.img?.split('public')[1]} alt="Ga"></Image>
                         }
                     </div>
                 </div>
@@ -206,7 +206,7 @@ export default function Home() {
                                 {foodFilter.length ? foodFilter.map(food => (<>
                                     <div className="flex flex-row ">
                                         <div className="w-[15%] relative h-16">
-                                            <Image layout="fill" objectFit="cover" src={API_URL + "/public" + food?.img?.split('public')[1]} alt="s" ></Image>
+                                            <Image layout="fill" objectFit="cover" src={API_URL_IMG + "/public" + food?.img?.split('public')[1]} alt="s" ></Image>
                                         </div>
                                         <div className="w-[60%] flex flex-col gap-1 px-2">
                                             <span className="font-bold text-[#464646] ">{food.name || ""}</span>
@@ -233,7 +233,7 @@ export default function Home() {
                             {select_foods.length ? select_foods.map(food => (<>
                                 <div className="flex flex-row my-2 ">
                                     <div className="w-[10%] relative h-16">
-                                        <Image layout="fill" objectFit="cover" src={API_URL + "/public" + food?.img?.split('public')[1]} alt="s" ></Image>
+                                        <Image layout="fill" objectFit="cover" src={API_URL_IMG + "/public" + food?.img?.split('public')[1]} alt="s" ></Image>
                                     </div>
                                     <div className="w-[50%] flex flex-col gap-1 px-2">
                                         <span className="font-bold text-[#464646] ">{food.name || ""}</span>

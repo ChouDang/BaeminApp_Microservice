@@ -6,7 +6,6 @@ import { MessagePattern, Payload } from '@nestjs/microservices';
 export class AuthController {
   constructor(private readonly authService: AuthService) { }
 
-  @Post("sign-up")
   @MessagePattern("sign_up")
   signUp(
     @Payload() body,
@@ -18,7 +17,6 @@ export class AuthController {
     }
   }
 
-  @Post("login")
   @MessagePattern("login")
   login(
     @Payload() body,

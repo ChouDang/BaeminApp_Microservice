@@ -5,10 +5,15 @@ import { PrismaModule } from './prisma/prisma.module';
 import { RestaurantsModule } from './restaurants/restaurants.module';
 import { CategoriesModule } from './categories/categories.module';
 import { FoodsModule } from './foods/foods.module';
+import { RedisCacheModule } from './redis-cache/redis-cache.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [PrismaModule],
-  controllers: [AppController, RestaurantsModule, CategoriesModule, FoodsModule],
+  imports: [PrismaModule,
+    ConfigModule.forRoot({ isGlobal: true }),
+    RedisCacheModule,
+    RestaurantsModule, CategoriesModule, FoodsModule],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule { }

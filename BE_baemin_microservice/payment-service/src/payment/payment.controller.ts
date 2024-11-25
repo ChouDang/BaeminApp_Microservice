@@ -7,27 +7,23 @@ import { PaymentService } from './payment.service';
 export class PaymentController {
   constructor(private readonly paymentService: PaymentService) { }
 
-  @Post()
   @MessagePattern("payment_createOrders")
   createOrders(@Payload() createPaymentDto) {
     return this.paymentService.createOrders(createPaymentDto);
   }
 
-  @Get("order")
   @MessagePattern("payment_getAllOrder")
   getAllOrder() {
     return this.paymentService.getAllOrder()
   }
 
-  @Get("orderDetail")
   @MessagePattern("payment_getOrderDetail")
-  getOrderDetail(@Payload('id') id: string) {
+  getOrderDetail(@Payload() id: string) {
     return this.paymentService.getOrderDetail(id)
   }
 
-  @Delete("order")
   @MessagePattern("payment_delOrder")
-  delOrder(@Payload('id') id: string) {
+  delOrder(@Payload() id: string) {
     return this.paymentService.delOrder(id)
   }
 }

@@ -6,7 +6,6 @@ import { CategoriesService } from './categories.service';
 export class CategoriesController {
   constructor(private readonly categoriesService: CategoriesService) { }
 
-  @Get()
   @MessagePattern("categories_findAllCategories")
   findAllCategories() {
     try {
@@ -16,7 +15,6 @@ export class CategoriesController {
     }
   }
 
-  @Post()
   @MessagePattern("categories_createCategorie")
   createCategorie(@Payload() name: string) {
     try {
@@ -26,7 +24,6 @@ export class CategoriesController {
     }
   }
 
-  @Delete()
   @MessagePattern("categories_delCategorie")
   delCategorie(@Payload("id") id: string) {
     try {

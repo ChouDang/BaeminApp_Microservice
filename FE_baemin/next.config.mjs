@@ -17,6 +17,12 @@ const nextConfig = {
         port: '8080',
         pathname: '/public/img/**',
       },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3001',
+        pathname: '/public/img/**',
+      },
     ],
   },
   reactStrictMode: false,

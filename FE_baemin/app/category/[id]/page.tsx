@@ -1,6 +1,6 @@
 'use client'
 
-import { API_URL } from "@/apis/axiosConfig"
+import { API_URL_IMG } from "@/apis/axiosConfig"
 import useApiCatory from "@/app/api/useApiCatory"
 import useApiRestaurants from "@/app/api/useApiRestaurants"
 import { Card, Col, Pagination, Row, Select, Typography } from "antd"
@@ -91,7 +91,7 @@ export default function Home() {
                                             <img
                                                 className="w-[300px] h-[200px] object-cover"
                                                 alt="example"
-                                                src={API_URL + "/public" + i?.img?.split('public')[1]}
+                                                src={API_URL_IMG + "/public" + i?.img?.split('public')[1]}
                                             />
                                         }
                                     >

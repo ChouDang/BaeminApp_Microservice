@@ -2,7 +2,6 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import * as express from "express"
-import { join } from 'path';
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(AppModule, {
@@ -19,8 +18,7 @@ async function bootstrap() {
 
   // Khởi tạo HTTP server để phục vụ file tĩnh
   const apphttp = await NestFactory.create(AppModule);
-  apphttp.use('/public', express.static(join(__dirname, '..', 'uploads'))); // Chỉ định thư mục chứa file tĩnh
-  // Lắng nghe cả RabbitMQ và HTTP server
+  apphttp.use(express.static("."))
   await app.listen();
   await apphttp.listen(3001);
 }

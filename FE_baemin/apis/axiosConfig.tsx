@@ -2,6 +2,8 @@
 import axios from 'axios';
 
 export const API_URL = 'http://localhost:8080'; 
+export const API_URL_IMG = 'http://localhost:3001'; 
+
 
 const getToken = () => {
   return localStorage.getItem('token');

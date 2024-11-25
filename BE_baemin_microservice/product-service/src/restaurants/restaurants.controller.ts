@@ -1,14 +1,18 @@
-import { Controller, Delete, Get, HttpException, HttpStatus, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { Controller, Delete, Get, HttpException, HttpStatus, Inject, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { RestaurantsService } from './restaurants.service';
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
+import { Cache } from 'cache-manager';
 
 @Controller('restaurants')
 export class RestaurantsController {
-  constructor(private readonly restaurantsService: RestaurantsService) { }
+  constructor(
+    private readonly restaurantsService: RestaurantsService,
+    @Inject(CACHE_MANAGER) private cacheManager: Cache
+  ) { }
 
-  @Post()
   @UseInterceptors(FileInterceptor('img', {
     storage: diskStorage({
       destination: process.cwd() + '/public/img',
@@ -21,26 +25,36 @@ export class RestaurantsController {
     @UploadedFile() img: Express.Multer.File
   ) {
     try {
-      return this.restaurantsService.create({
+      let result = this.restaurantsService.create({
         ...createRestaurantDto,
         img: img ? img.path : null,
       });
+      if (result) {
+        await this.delCache("restaurants_findAll")
+      }
+      return result
     } catch (error) {
       throw new HttpException("Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 
-  @Get()
   @MessagePattern("restaurants_findAll")
-  findAll() {
+  async findAll() {
     try {
-      return this.restaurantsService.findAll();
+      let checkCache = await this.getCache("restaurants_findAll")
+      if (checkCache) {
+        return checkCache
+      }
+      let result = this.restaurantsService.findAll();
+      if (result) {
+        await this.setCache("restaurants_findAll", result)
+      }
+      return result
     } catch (error) {
       throw new HttpException("Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 
-  @Get(':id')
   @MessagePattern("restaurants_findOne")
   findOne(@Payload() id: string) {
     try {
@@ -50,29 +64,44 @@ export class RestaurantsController {
     }
   }
 
-  @Get("/categories/foods")
   @MessagePattern("categories_foods")
-  getRestaurantsOfCategories(
+  async getRestaurantsOfCategories(
     @Payload() body
   ) {
     try {
       const { categorie, page, size, query } = body || {}
-      return this.restaurantsService.getRestaurantsOfCategories(categorie, +page, +size, query)
+      let result = this.restaurantsService.getRestaurantsOfCategories(categorie, +page, +size, query)
+      return result
     } catch (error) {
       throw new HttpException("Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 
-  @Delete("/categories/foods")
   @MessagePattern("delRestaurants")
-  delRestaurants(
+  async delRestaurants(
     @Payload() id: string
   ) {
     try {
-      return this.restaurantsService.delRestaurants(id)
+      let result = await this.restaurantsService.delRestaurants(id)
+      if (result) {
+        await this.delCache("restaurants_findAll")
+      }
+      return result
     } catch (error) {
       throw new HttpException("Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 
+  async setCache(key: string, value: any, ttl: number = 10000) {
+    await this.cacheManager.set(key, value, ttl);
+  }
+  async getCache(key: string): Promise<any> {
+    return await this.cacheManager.get(key);
+  }
+  async delCache(key: string) {
+    await this.cacheManager.del(key);
+  }
+  async resetCache() {
+    await this.cacheManager.reset();
+  }
 }

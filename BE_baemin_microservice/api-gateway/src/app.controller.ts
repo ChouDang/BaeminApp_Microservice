@@ -10,18 +10,18 @@ import { CreateRestaurantDto } from './dto/create-restaurant.dto';
 import { AddFoodDto } from './dto/add-food.dto';
 import { AuthGuard } from '@nestjs/passport';
 import { CreatePaymentDto } from './dto/create-payment.dto';
-
 @Controller()
 export class AppController {
   constructor(
     private readonly appService: AppService,
-    @Inject(process.env.IDENTITY_NAME) private identifyService: ClientProxy,
-    @Inject(process.env.NOTIFICATION_NAME) private notificationService: ClientProxy,
-    @Inject(process.env.PAYMENT_NAME) private paymentService: ClientProxy,
-    @Inject(process.env.PRODUCT_NAME) private productService: ClientProxy,
+    @Inject('IDENTITY_NAME') private identifyService: ClientProxy,
+    @Inject('NOTIFICATION_NAME') private notificationService: ClientProxy,
+    @Inject('PAYMENT_NAME') private paymentService: ClientProxy,
+    @Inject('PRODUCT_NAME') private productService: ClientProxy,
   ) { }
 
   // check heath
+  @ApiTags("App")
   @Get()
   getHello(): string {
     return this.appService.getHello();
@@ -96,7 +96,7 @@ export class AppController {
   @Get('categories')
   async findAllCategories() {
     try {
-      return await lastValueFrom(this.identifyService.send("categories_findAllCategories", ""));
+      return await lastValueFrom(this.productService.send("categories_findAllCategories", ""));
     } catch (error) {
       throw new HttpException("Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -114,7 +114,7 @@ export class AppController {
   })
   async createCategorie(@Body() body: { name: string }) {
     try {
-      return await lastValueFrom(this.identifyService.send("categories_createCategorie", body.name));
+      return await lastValueFrom(this.productService.send("categories_createCategorie", body.name));
     } catch (error) {
       throw new HttpException("Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -124,7 +124,7 @@ export class AppController {
   @Delete("categories")
   async delCategorie(@Query("id") id: string) {
     try {
-      return await lastValueFrom(this.identifyService.send("categories_delCategorie", id));
+      return await lastValueFrom(this.productService.send("categories_delCategorie", id));
     } catch (error) {
       throw new HttpException("Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -252,6 +252,7 @@ export class AppController {
       if (result) {
         // await lastValueFrom(this.notificationService.send("success_order", ''));
       }
+      return result
     } catch (error) {
       throw new HttpException("Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
     }

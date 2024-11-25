@@ -22,6 +22,7 @@ export class AuthService {
       });
       return { success: true, user: newUser };
     } catch (error) {
+      console.log(error,"error")
       throw new HttpException("Error can't create user", HttpStatus.BAD_REQUEST);
     }
   }

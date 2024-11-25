@@ -14,7 +14,6 @@ export class FoodsController {
       filename: (req, file, callback) => callback(null, new Date().toISOString() + "_" + file.originalname)
     }),
   }))
-  @Post()
   @MessagePattern("addFoodToRestaurant")
   addFoodToRestaurant(
     @Payload() addFoodsToRestaurantDto,
@@ -27,7 +26,6 @@ export class FoodsController {
     }
   }
 
-  @Get()
   @MessagePattern("foods_get")
   getAllFoods() {
     try {
@@ -37,7 +35,6 @@ export class FoodsController {
     }
   }
 
-  @Delete()
   @MessagePattern("foods_del")
   delFoods(@Payload("id") id: string) {
     try {

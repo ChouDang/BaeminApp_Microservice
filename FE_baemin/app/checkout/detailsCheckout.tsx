@@ -1,4 +1,4 @@
-import { API_URL } from "@/apis/axiosConfig";
+import { API_URL_IMG } from "@/apis/axiosConfig";
 import Image from "next/image";
 
 export default function DetailsCart({ Details }: {
@@ -17,7 +17,7 @@ export default function DetailsCart({ Details }: {
                             >
                                 <div className="pl-8  col-span-4 flex items-center flex-row gap-3">
                                     <div className="relative h-36 w-36">
-                                        <Image layout="fill" objectFit="cover" src={API_URL + "/public" + item?.img?.split('public')[1]} alt={""} />
+                                        <Image layout="fill" objectFit="cover" src={API_URL_IMG + "/public" + item?.img?.split('public')[1]} alt={""} />
                                     </div>
                                     <div className="flex flex-col gap-3">
                                         <span className="text-base ">{item.name}</span>

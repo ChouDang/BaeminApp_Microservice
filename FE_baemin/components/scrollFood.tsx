@@ -1,5 +1,5 @@
 'use client'
-import { API_URL } from "@/apis/axiosConfig";
+import { API_URL_IMG } from "@/apis/axiosConfig";
 import useApiRestaurants from "@/app/api/useApiRestaurants";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -41,7 +41,7 @@ export default function ScrollBar() {
                                     <div className="ml-3 text-xl font-bold mb-2 truncate">  {item.name} </div>
                                     <div className="w-[200px] h-[150px] relative overflow-hidden" >
                                         <Image
-                                            src={API_URL + "/public" + item.img.split('public')[1]}
+                                            src={API_URL_IMG + "/public" + item.img.split('public')[1]}
                                             alt={""}
                                             fill
                                             className="object-contain group-hover:scale-105 transform transition-transform duration-300 ease-out"

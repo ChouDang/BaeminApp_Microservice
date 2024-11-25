@@ -9,9 +9,9 @@ async function bootstrap() {
       urls: [process.env.RABBITMQ_URL],
       queue: process.env.PAYMENT_QUEUE,
       queueOptions: {
-        durable: false // giữ lại các queue khi rabbitMQ bị restart
+        durable: true // giữ lại các queue khi rabbitMQ bị restart
       },
-      persistent: false // giữ lại các message khi rabbitMQ bị restart
+      persistent: true // giữ lại các message khi rabbitMQ bị restart
     }
   });
   await app.listen();
