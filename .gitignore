@@ -1,0 +1,242 @@
+# --- FE_baemin specific ignores ---
+FE_baemin/node_modules
+FE_baemin/.pnp
+FE_baemin/.pnp.js
+FE_baemin/.yarn/install-state.gz
+
+# testing for FE_baemin
+FE_baemin/coverage
+
+# next.js
+FE_baemin/.next/
+FE_baemin/out/
+
+# production build output
+FE_baemin/build
+
+# misc
+FE_baemin/.DS_Store
+FE_baemin/*.pem
+
+# debug
+FE_baemin/npm-debug.log*
+FE_baemin/yarn-debug.log*
+FE_baemin/yarn-error.log*
+
+# local env files for FE_baemin
+FE_baemin/.env*.local
+
+# vercel
+FE_baemin/.vercel
+
+# typescript
+FE_baemin/*.tsbuildinfo
+FE_baemin/next-env.d.ts
+
+
+# --- BE_baemin_microservice specific ignores ---
+BE_baemin_microservice/api-gateway/node_modules/
+BE_baemin_microservice/identity-service/node_modules/
+BE_baemin_microservice/notification-service/node_modules/
+BE_baemin_microservice/payment-service/node_modules/
+BE_baemin_microservice/product-service/node_modules/
+
+# compiled output for BE_baemin_microservice
+BE_baemin_microservice/api-gateway/dist
+BE_baemin_microservice/identity-service/dist
+BE_baemin_microservice/notification-service/dist
+BE_baemin_microservice/payment-service/dist
+BE_baemin_microservice/product-service/dist
+BE_baemin_microservice/api-gateway/build
+BE_baemin_microservice/identity-service/build
+BE_baemin_microservice/notification-service/build
+BE_baemin_microservice/payment-service/build
+BE_baemin_microservice/product-service/build
+
+# Logs
+BE_baemin_microservice/api-gateway/logs
+BE_baemin_microservice/identity-service/logs
+BE_baemin_microservice/notification-service/logs
+BE_baemin_microservice/payment-service/logs
+BE_baemin_microservice/product-service/logs
+BE_baemin_microservice/api-gateway/*.log
+BE_baemin_microservice/identity-service/*.log
+BE_baemin_microservice/notification-service/*.log
+BE_baemin_microservice/payment-service/*.log
+BE_baemin_microservice/product-service/*.log
+BE_baemin_microservice/api-gateway/npm-debug.log*
+BE_baemin_microservice/identity-service/npm-debug.log*
+BE_baemin_microservice/notification-service/npm-debug.log*
+BE_baemin_microservice/payment-service/npm-debug.log*
+BE_baemin_microservice/product-service/npm-debug.log*
+BE_baemin_microservice/api-gateway/pnpm-debug.log*
+BE_baemin_microservice/identity-service/pnpm-debug.log*
+BE_baemin_microservice/notification-service/pnpm-debug.log*
+BE_baemin_microservice/payment-service/pnpm-debug.log*
+BE_baemin_microservice/product-service/pnpm-debug.log*
+BE_baemin_microservice/api-gateway/yarn-debug.log*
+BE_baemin_microservice/identity-service/yarn-debug.log*
+BE_baemin_microservice/notification-service/yarn-debug.log*
+BE_baemin_microservice/payment-service/yarn-debug.log*
+BE_baemin_microservice/product-service/yarn-debug.log*
+BE_baemin_microservice/api-gateway/yarn-error.log*
+BE_baemin_microservice/identity-service/yarn-error.log*
+BE_baemin_microservice/notification-service/yarn-error.log*
+BE_baemin_microservice/payment-service/yarn-error.log*
+BE_baemin_microservice/product-service/yarn-error.log*
+BE_baemin_microservice/api-gateway/lerna-debug.log*
+BE_baemin_microservice/identity-service/lerna-debug.log*
+BE_baemin_microservice/notification-service/lerna-debug.log*
+BE_baemin_microservice/payment-service/lerna-debug.log*
+BE_baemin_microservice/product-service/lerna-debug.log*
+
+# OS
+BE_baemin_microservice/api-gateway/.DS_Store
+BE_baemin_microservice/identity-service/.DS_Store
+BE_baemin_microservice/notification-service/.DS_Store
+BE_baemin_microservice/payment-service/.DS_Store
+BE_baemin_microservice/product-service/.DS_Store
+
+# Tests
+BE_baemin_microservice/api-gateway/coverage
+BE_baemin_microservice/identity-service/coverage
+BE_baemin_microservice/notification-service/coverage
+BE_baemin_microservice/payment-service/coverage
+BE_baemin_microservice/product-service/coverage
+BE_baemin_microservice/api-gateway/.nyc_output
+BE_baemin_microservice/identity-service/.nyc_output
+BE_baemin_microservice/notification-service/.nyc_output
+BE_baemin_microservice/payment-service/.nyc_output
+BE_baemin_microservice/product-service/.nyc_output
+
+# IDEs and editors
+BE_baemin_microservice/api-gateway/.idea
+BE_baemin_microservice/identity-service/.idea
+BE_baemin_microservice/notification-service/.idea
+BE_baemin_microservice/payment-service/.idea
+BE_baemin_microservice/product-service/.idea
+BE_baemin_microservice/api-gateway/.project
+BE_baemin_microservice/identity-service/.project
+BE_baemin_microservice/notification-service/.project
+BE_baemin_microservice/payment-service/.project
+BE_baemin_microservice/product-service/.project
+BE_baemin_microservice/api-gateway/.classpath
+BE_baemin_microservice/identity-service/.classpath
+BE_baemin_microservice/notification-service/.classpath
+BE_baemin_microservice/payment-service/.classpath
+BE_baemin_microservice/product-service/.classpath
+BE_baemin_microservice/api-gateway/.c9/
+BE_baemin_microservice/identity-service/.c9/
+BE_baemin_microservice/notification-service/.c9/
+BE_baemin_microservice/payment-service/.c9/
+BE_baemin_microservice/product-service/.c9/
+BE_baemin_microservice/api-gateway/*.launch
+BE_baemin_microservice/identity-service/*.launch
+BE_baemin_microservice/notification-service/*.launch
+BE_baemin_microservice/payment-service/*.launch
+BE_baemin_microservice/product-service/*.launch
+BE_baemin_microservice/api-gateway/.settings/
+BE_baemin_microservice/identity-service/.settings/
+BE_baemin_microservice/notification-service/.settings/
+BE_baemin_microservice/payment-service/.settings/
+BE_baemin_microservice/product-service/.settings/
+BE_baemin_microservice/api-gateway/*.sublime-workspace
+BE_baemin_microservice/identity-service/*.sublime-workspace
+BE_baemin_microservice/notification-service/*.sublime-workspace
+BE_baemin_microservice/payment-service/*.sublime-workspace
+BE_baemin_microservice/product-service/*.sublime-workspace
+
+# IDE - VSCode
+BE_baemin_microservice/api-gateway/.vscode/*
+BE_baemin_microservice/identity-service/.vscode/*
+BE_baemin_microservice/notification-service/.vscode/*
+BE_baemin_microservice/payment-service/.vscode/*
+BE_baemin_microservice/product-service/.vscode/*
+!BE_baemin_microservice/api-gateway/.vscode/settings.json
+!BE_baemin_microservice/identity-service/.vscode/settings.json
+!BE_baemin_microservice/notification-service/.vscode/settings.json
+!BE_baemin_microservice/payment-service/.vscode/settings.json
+!BE_baemin_microservice/product-service/.vscode/settings.json
+!BE_baemin_microservice/api-gateway/.vscode/tasks.json
+!BE_baemin_microservice/identity-service/.vscode/tasks.json
+!BE_baemin_microservice/notification-service/.vscode/tasks.json
+!BE_baemin_microservice/payment-service/.vscode/tasks.json
+!BE_baemin_microservice/product-service/.vscode/tasks.json
+!BE_baemin_microservice/api-gateway/.vscode/launch.json
+!BE_baemin_microservice/identity-service/.vscode/launch.json
+!BE_baemin_microservice/notification-service/.vscode/launch.json
+!BE_baemin_microservice/payment-service/.vscode/launch.json
+!BE_baemin_microservice/product-service/.vscode/launch.json
+!BE_baemin_microservice/api-gateway/.vscode/extensions.json
+!BE_baemin_microservice/identity-service/.vscode/extensions.json
+!BE_baemin_microservice/notification-service/.vscode/extensions.json
+!BE_baemin_microservice/payment-service/.vscode/extensions.json
+!BE_baemin_microservice/product-service/.vscode/extensions.json
+
+# dotenv environment variable files
+# BE_baemin_microservice/api-gateway/.env
+# BE_baemin_microservice/identity-service/.env
+# BE_baemin_microservice/notification-service/.env
+# BE_baemin_microservice/payment-service/.env
+# BE_baemin_microservice/product-service/.env
+# BE_baemin_microservice/api-gateway/.env.development.local
+# BE_baemin_microservice/identity-service/.env.development.local
+# BE_baemin_microservice/notification-service/.env.development.local
+# BE_baemin_microservice/payment-service/.env.development.local
+# BE_baemin_microservice/product-service/.env.development.local
+# BE_baemin_microservice/api-gateway/.env.test.local
+# BE_baemin_microservice/identity-service/.env.test.local
+# BE_baemin_microservice/notification-service/.env.test.local
+# BE_baemin_microservice/payment-service/.env.test.local
+# BE_baemin_microservice/product-service/.env.test.local
+# BE_baemin_microservice/api-gateway/.env.production.local
+# BE_baemin_microservice/identity-service/.env.production.local
+# BE_baemin_microservice/notification-service/.env.production.local
+# BE_baemin_microservice/payment-service/.env.production.local
+# BE_baemin_microservice/product-service/.env.production.local
+# BE_baemin_microservice/api-gateway/.env.local
+# BE_baemin_microservice/identity-service/.env.local
+# BE_baemin_microservice/notification-service/.env.local
+# BE_baemin_microservice/payment-service/.env.local
+# BE_baemin_microservice/product-service/.env.local
+
+# temp directory
+BE_baemin_microservice/api-gateway/.temp
+BE_baemin_microservice/identity-service/.temp
+BE_baemin_microservice/notification-service/.temp
+BE_baemin_microservice/payment-service/.temp
+BE_baemin_microservice/product-service/.temp
+BE_baemin_microservice/api-gateway/.tmp
+BE_baemin_microservice/identity-service/.tmp
+BE_baemin_microservice/notification-service/.tmp
+BE_baemin_microservice/payment-service/.tmp
+BE_baemin_microservice/product-service/.tmp
+
+# Runtime data
+BE_baemin_microservice/api-gateway/pids
+BE_baemin_microservice/identity-service/pids
+BE_baemin_microservice/notification-service/pids
+BE_baemin_microservice/payment-service/pids
+BE_baemin_microservice/product-service/pids
+BE_baemin_microservice/api-gateway/*.pid
+BE_baemin_microservice/identity-service/*.pid
+BE_baemin_microservice/notification-service/*.pid
+BE_baemin_microservice/payment-service/*.pid
+BE_baemin_microservice/product-service/*.pid
+BE_baemin_microservice/api-gateway/*.seed
+BE_baemin_microservice/identity-service/*.seed
+BE_baemin_microservice/notification-service/*.seed
+BE_baemin_microservice/payment-service/*.seed
+BE_baemin_microservice/product-service/*.seed
+BE_baemin_microservice/api-gateway/*.pid.lock
+BE_baemin_microservice/identity-service/*.pid.lock
+BE_baemin_microservice/notification-service/*.pid.lock
+BE_baemin_microservice/payment-service/*.pid.lock
+BE_baemin_microservice/product-service/*.pid.lock
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+BE_baemin_microservice/api-gateway/report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+BE_baemin_microservice/identity-service/report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+BE_baemin_microservice/notification-service/report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+BE_baemin_microservice/payment-service/report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+BE_baemin_microservice/product-service/report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
