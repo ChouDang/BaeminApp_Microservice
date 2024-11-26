@@ -1,5 +1,4 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { restaurants } from '@prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
@@ -7,7 +6,7 @@ export class RestaurantsService {
 
   constructor(private prisma: PrismaService) { }
 
-  async create(createRestaurantDto: Omit<restaurants, "foods" | "id">) {
+  async create(createRestaurantDto) {
     try {
       return this.prisma.restaurants.create({
         data: createRestaurantDto
@@ -41,20 +40,6 @@ export class RestaurantsService {
 
   async getRestaurantsOfCategories(categorie: string, page: number, size: number, query: string) {
 
-    // const restaurants = await this.prisma.restaurants.findMany({
-    //   skip: (page - 1) * size,
-    //   take: size,
-    //   where: {
-    //     foods: {
-    //       some: {
-    //         category_id: categorie
-    //       }
-    //     }
-    //   },
-    //   include: {
-    //     foods: true
-    //   }
-    // });
     const restaurants = await this.prisma.restaurants.findMany({
       skip: (page - 1) * size,
       take: size,
@@ -70,7 +55,7 @@ export class RestaurantsService {
           {
             OR: [
               { name: { contains: query, mode: "insensitive" } },
-              { foods: { some: { name: { contains: query, mode: "insensitive" } } } } 
+              { foods: { some: { name: { contains: query, mode: "insensitive" } } } }
             ]
           }
         ]

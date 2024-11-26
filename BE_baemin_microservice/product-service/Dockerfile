@@ -4,15 +4,14 @@ WORKDIR /root/product-service
 
 COPY package.json .
 
+RUN yarn config set network-timeout 3000000
 RUN yarn install
+
+COPY ./prisma/schema.prisma ./prisma/schema.prisma
+RUN yarn prisma generate
 
 COPY . .
 
-RUN yarn build
-
-EXPOSE 8080
+RUN yarn run build
 
 CMD ["yarn","start:prod"]
-
-# docker build . -t api-gateway
-# docker run -d -p 8080:8080 --name api-gateway --net node-network api-gateway

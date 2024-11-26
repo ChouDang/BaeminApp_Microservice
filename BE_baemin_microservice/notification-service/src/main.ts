@@ -6,8 +6,8 @@ async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(AppModule, {
     transport: Transport.RMQ,
     options: {
-      urls: ['amqp://admin:1234@localhost:5672'],
-      queue: 'notification_queue',
+      urls: [process.env.RABBITMQ_URL],
+      queue: process.env.NOTIFICATION_QUEUE,
       queueOptions: {
         durable: true // giữ lại các queue khi rabbitMQ bị restart
       },

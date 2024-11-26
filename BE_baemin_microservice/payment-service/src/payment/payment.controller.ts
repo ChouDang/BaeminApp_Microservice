@@ -2,7 +2,7 @@ import { Controller, Delete, Get, Post } from '@nestjs/common';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 import { PaymentService } from './payment.service';
 
-// @UseGuards(AuthGuard('jwt'))
+// @UseGuards(AuthGuard('jwt')) validate by gateway
 @Controller('payment')
 export class PaymentController {
   constructor(private readonly paymentService: PaymentService) { }

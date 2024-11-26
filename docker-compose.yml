@@ -64,6 +64,20 @@ services:
     networks:
       - node-network
 
+  postgres:
+    image: postgres:latest
+    container_name: some-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: db_baemin 
+    ports:
+      - "5432:5432"
+    networks:
+      - node-network
+    volumes:
+      - ./db_baemin.dump
+
   elasticsearch:
     container_name: elasticsearch
     image: elasticsearch:8.15.0

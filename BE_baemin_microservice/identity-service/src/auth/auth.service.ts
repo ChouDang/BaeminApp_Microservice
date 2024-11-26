@@ -1,6 +1,5 @@
 import { HttpException, HttpStatus, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { users } from '@prisma/client';
 import { createHmac } from 'crypto';
 import { UsersService } from 'src/users/users.service';
 import * as bcrypt from 'bcrypt';
@@ -12,7 +11,7 @@ export class AuthService {
     private usersService: UsersService,
   ) { }
 
-  async signUp(body: Omit<users, 'id'>) {
+  async signUp(body) {
     try {
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(body.password, salt);
@@ -27,7 +26,7 @@ export class AuthService {
     }
   }
 
-  async login(body: Pick<users, 'email' | 'password'>) {
+  async login(body) {
     try {
       const { email, password } = body;
       const user = await this.usersService.findByEmail(email);

@@ -1,5 +1,4 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
-import { foods } from '@prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
@@ -17,7 +16,7 @@ export class PaymentService {
     const { userId, items } = createPaymentDto;
     return this.prisma.$transaction(async (prisma) => {
       // Kiểm tra và cập nhật stock của từng món ăn
-      let foods: foods[] = []
+      let foods = []
       for (const item of items) {
         const food = await prisma.foods.findUnique({
           where: { id: item.foodId },
