@@ -1,8 +1,8 @@
-version: "3.9"
+version: "3"
 services: 
   api-gateway:
     container_name: api-gateway
-    build: ./api-getway 
+    build: ./BE_baemin_microservice/api-gateway 
     ports:
       - 8080:8080
     networks:
@@ -13,7 +13,7 @@ services:
 
   identity-service:
     container_name: identity-service
-    build: ./identity-service
+    build: ./BE_baemin_microservice/identity-service
     networks:
       - node-network
     depends_on:
@@ -21,7 +21,7 @@ services:
 
   notification-service:
     container_name: notification-service
-    build: ./notification-service 
+    build: ./BE_baemin_microservice/notification-service 
     networks:
       - node-network
     depends_on:
@@ -29,7 +29,7 @@ services:
 
   payment-service:
     container_name: payment-service
-    build: ./payment-service
+    build: ./BE_baemin_microservice/payment-service
     networks:
       - node-network
     depends_on:
@@ -38,7 +38,7 @@ services:
 
   product-service:
     container_name: product-service
-    build: ./product-service
+    build: ./BE_baemin_microservice/product-service
     networks:
       - node-network
     depends_on:
@@ -108,3 +108,5 @@ services:
 networks:
   node-network:
     external: true # sử dụng mạng có sẵn trước đó
+
+# docker-compose up -d
