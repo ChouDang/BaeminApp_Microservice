@@ -76,7 +76,7 @@ services:
     networks:
       - node-network
     volumes:
-      - ./db_baemin.dump
+      - ./db_baemin.dump:/docker-entrypoint-initdb.d/db_baemin.dump # Mount file dump vào thư mục init
 
   elasticsearch:
     container_name: elasticsearch
