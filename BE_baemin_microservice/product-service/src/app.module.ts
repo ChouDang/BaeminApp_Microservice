@@ -7,11 +7,13 @@ import { CategoriesModule } from './categories/categories.module';
 import { FoodsModule } from './foods/foods.module';
 import { RedisCacheModule } from './redis-cache/redis-cache.module';
 import { ConfigModule } from '@nestjs/config';
+import { ElasticModule } from './elastic/elastic.module';
 
 @Module({
   imports: [PrismaModule,
     ConfigModule.forRoot({ isGlobal: true }),
     RedisCacheModule,
+    ElasticModule,
     RestaurantsModule, CategoriesModule, FoodsModule],
   controllers: [AppController],
   providers: [AppService],
