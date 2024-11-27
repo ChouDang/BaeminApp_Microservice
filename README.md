@@ -1,4 +1,4 @@
-# BaeminApp - Đặng Hoài Trọng
+# BaeminApp_Microservice - Đặng Hoài Trọng
 
 - Có upload `.env` `db_baemin.dump` `logstash.conf` đã config node-network 
 - run BE: docker-compose up -d
