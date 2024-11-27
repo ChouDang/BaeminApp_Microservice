@@ -247,13 +247,19 @@ export class AppController {
   @Post('payment')
   async createOrders(@Body() createPaymentDto: CreatePaymentDto) {
     try {
-      // await lastValueFrom(this.notificationService.send("confirm_order", ''));
-      let result = await lastValueFrom(this.paymentService.send("payment_createOrders", createPaymentDto));
+      console.log("1");
+      await lastValueFrom(this.notificationService.emit("confirm_order", createPaymentDto.email));
+      const result = await lastValueFrom(this.paymentService.send("payment_createOrders", createPaymentDto));
+      console.log(result, "2");
       if (result) {
-        // await lastValueFrom(this.notificationService.send("success_order", ''));
+        setTimeout(() => {
+          lastValueFrom(this.notificationService.emit("success_order", createPaymentDto.email));
+        }, 10000);
       }
-      return result
+      console.log(3)
+      return result;
     } catch (error) {
+      console.log(error, "error111111");
       throw new HttpException("Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }

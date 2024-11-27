@@ -49,7 +49,7 @@ export default function ScrollBar() {
                                     </div>
                                     <div className=" w-full h-1/3  flex flex-col pl-2 pr-2 border-solid border-2  border-beamin-50">
                                         <div className="w-full overflow-hidden text-ellipsis whitespace-nowrap line-clamp-2 text-base ">
-                                            <span  > {item.name} </span>
+                                            <span  > {item.name} aaaa </span>
                                         </div>
                                         <div className="w-full overflow-hidden text-ellipsis whitespace-nowrap line-clamp-2 text-sm " style={{ color: '#959595' }}>
                                             <span> {item.address}</span>

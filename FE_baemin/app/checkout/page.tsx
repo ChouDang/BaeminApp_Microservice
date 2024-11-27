@@ -27,7 +27,8 @@ export default function Home() {
             items: foodsCart.map(i => ({
                 foodId: i.id,
                 quantity: i.quantity
-            }))
+            })),
+            email: user.user?.email
         })
         if (resp) {
             router.push('/statusorder/' + resp.data.order.id);

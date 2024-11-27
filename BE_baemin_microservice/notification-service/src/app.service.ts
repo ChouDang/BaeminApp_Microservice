@@ -29,7 +29,7 @@ export class AppService {
       }
     })
     configMail.sendMail({
-      from: "hoatirongdang@gmail.com",
+      from: "hoaitrongdang@gmail.com",
       to: data,
       subject: "Đặt hàng qua Beamin",
       html: "<h1 style='color:red' > Đặt hàng thành công </h1>"

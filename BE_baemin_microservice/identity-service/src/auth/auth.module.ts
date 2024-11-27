@@ -6,7 +6,7 @@ import { UsersService } from 'src/users/users.service';
 
 @Module({
   imports: [
-    JwtModule.register({ secret: process.env.SECRET_KEY_AUTH }),
+    JwtModule.register({ secret: process.env.SECRET_KEY_AUTH || "CHOUDANG" }),
   ],
   controllers: [AuthController],
   providers: [AuthService, UsersService],

@@ -37,9 +37,10 @@ export class AuthService {
       if (!isPasswordValid) {
         throw new UnauthorizedException('Invalid email or password');
       }
-      const token = this.jwtService.sign({ userId: user.id });
+      const token = this.jwtService.sign({ userId: user.id || "token_valid" });
       return { success: true, user, token };
     } catch (error) {
+      console.log(error,"error")
       throw new HttpException("Error not match user", HttpStatus.FORBIDDEN);
     }
   }

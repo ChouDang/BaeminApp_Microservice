@@ -45,7 +45,7 @@ export class RestaurantsController {
       if (checkCache) {
         return checkCache
       }
-      let result = this.restaurantsService.findAll();
+      let result = await this.restaurantsService.findAll();
       if (result) {
         await this.setCache("restaurants_findAll", result)
       }

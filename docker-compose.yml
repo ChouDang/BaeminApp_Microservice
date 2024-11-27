@@ -109,15 +109,17 @@ services:
     container_name: logstash
     image: logstash:8.15.0
     depends_on:
+      - postgres
       - elasticsearch
     ports:
       - 5044:5044  
-      - 5000:5000  # Logstash TCP input
     networks:
       - node-network
     volumes:
-      - ./logstash/config:/usr/share/logstash/config
-      - ./logstash/pipeline:/usr/share/logstash/pipeline
+      - ./BE_baemin_microservice/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      - /usr/share/logstash/driver:/usr/share/logstash/driver
+    environment:
+      - LS_JAVA_OPTS=-Xmx256m -Xms256m
 
 networks:
   node-network:

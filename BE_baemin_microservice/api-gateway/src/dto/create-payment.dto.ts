@@ -14,4 +14,7 @@ export class CreatePaymentDto {
 
   @ApiProperty({ type: [OrderItemDto], description: 'Danh sách các món ăn và số lượng của mỗi món' })
   items: OrderItemDto[];
+
+  @ApiProperty({ type: String, description: 'email' })
+  email: string;
 }

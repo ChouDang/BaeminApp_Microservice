@@ -8,10 +8,14 @@ import { FoodsModule } from './foods/foods.module';
 import { RedisCacheModule } from './redis-cache/redis-cache.module';
 import { ConfigModule } from '@nestjs/config';
 import { ElasticModule } from './elastic/elastic.module';
+import { MulterModule } from '@nestjs/platform-express';
 
 @Module({
   imports: [PrismaModule,
     ConfigModule.forRoot({ isGlobal: true }),
+    MulterModule.register({
+      dest: './uploads',
+    }),
     RedisCacheModule,
     ElasticModule,
     RestaurantsModule, CategoriesModule, FoodsModule],

@@ -130,5 +130,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
 // Custom hook để sử dụng context
 export const useCart = () => {
-  return useContext(CartContext);
+  const context = useContext(CartContext);
+  if (!context) {
+    throw new Error('MyComponent must be used within a MyProvider');
+  }
+  return context
 };
