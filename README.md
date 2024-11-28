@@ -26,9 +26,7 @@
 - Giỏ hàng có thể thêm nhiều food của nhiều restaurant thanh toán 1 lần 
 - Thanh toán gửi email xác nhận sau đó tự trừ tồn kho và ra đơn orders và liên kết bằng order_food sau đó 10s sẽ gửi email giao hàng thành công
 
-
-## DB - PostgreSQL
-### Relation Table 
+##  PostgreSQL Relation Table 
 - `categories` - `foods`: 1-n (1 danh mục có nhiều món ăn).
 - `restaurants` - `foods`: 1-n (1 nhà hàng có nhiều món ăn).
 - `orders` - `order_food`: 1-n (1 đơn hàng có nhiều món ăn).
