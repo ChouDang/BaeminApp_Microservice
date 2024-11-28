@@ -21,6 +21,7 @@
 ## Feature
 - Đăng nhập, đăng ký, JWT
 - Redis lưu cache categories, restaurants => tối ưu Get với cache
+- ELK stack thu thập log các service vào index:service-logs-%{+YYYY.MM.dd}, đồng bộ Elastic table (restaurants, food) đã config trong logstash.conf
 - Tìm kiếm với elasticsearch danh sách  restaurants theo categories ( phân trang, search (food.name, restaurant.name) ) 
 - Xem chi tiết restaurants có foods (search, filter categories ,thêm món vào giỏ hàng) 
 - Giỏ hàng có thể thêm nhiều food của nhiều restaurant thanh toán 1 lần 
