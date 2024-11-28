@@ -8,6 +8,7 @@
 - ELK stack 
 - RabbitMQ
 - Redis
+- PostgresQL
 
 ## Service 
 - api-gateway
@@ -15,7 +16,7 @@
 - notification-service
 - payment-service
 - product-service
-- ELK stack, RabbitMQ, Redis được cài với docker-compose 
+- ELK stack, RabbitMQ, Redis, PostgresQL được cài với docker-compose 
 
 ## Feature
 - Đăng nhập, đăng ký, JWT
