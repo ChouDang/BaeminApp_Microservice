@@ -7,42 +7,31 @@ services:
       - 8080:8080
     networks:
       - node-network
-    depends_on:
-      - rabbitmq
-      - redis
 
   identity-service:
     container_name: identity-service
     build: ./BE_baemin_microservice/identity-service
     networks:
       - node-network
-    depends_on:
-      - rabbitmq
 
   notification-service:
     container_name: notification-service
     build: ./BE_baemin_microservice/notification-service 
     networks:
       - node-network
-    depends_on:
-      - rabbitmq
 
   payment-service:
     container_name: payment-service
     build: ./BE_baemin_microservice/payment-service
     networks:
       - node-network
-    depends_on:
-      - rabbitmq
-      - redis
 
   product-service:
     container_name: product-service
     build: ./BE_baemin_microservice/product-service
     networks:
       - node-network
-    depends_on:
-      - rabbitmq
+
 
 networks:
   node-network:
