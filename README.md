@@ -2,7 +2,7 @@
 
 - Có upload `.env` `db_baemin.dump` `logstash.conf` đã config node-network 
 - run BE: docker-compose up -d
-- run FE:  
+ + run FE:  
  + cd ./FE_baemin
  + docker build . -t fe-baemin
  + docker run -d -p 3000:3000 --name fe-baemin --net node-network fe-baemin
