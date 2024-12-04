@@ -10,7 +10,7 @@ async function bootstrap() {
     defaultMeta: { service: "API Gateway" },
     transports: [
       new winston.transports.Http({
-        host: "localhost",
+        host: "logstash",
         port: 5044,
         level: 'error'
       })

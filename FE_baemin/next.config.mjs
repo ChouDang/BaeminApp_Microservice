@@ -28,6 +28,18 @@ const nextConfig = {
         port: '3001',
         pathname: '/public/img/**',
       },
+      {
+        protocol: 'http',
+        hostname: 'api-gateway',
+        port: '8080',
+        pathname: '/public/img/**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'product-service',
+        port: '3001',
+        pathname: '/public/img/**',
+      },
     ],
   },
   reactStrictMode: false,
